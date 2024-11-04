@@ -8,7 +8,7 @@ const listproduct = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: "get categories",
+      message: "get product ",
       data: product,
     });
   } catch (error) {
@@ -20,4 +20,28 @@ const listproduct = async (req, res) => {
   }
 };
 
-module.exports = { listproduct };
+
+const  getproductlist = async (req, res) => {
+  try {
+    console.log("Fwefnewhkfbe", req.query);
+
+      const page = parseInt(req.query.page) || 1; 
+      const pageSize = parseInt(req.query.pageSize) || 10; 
+
+     const product = await productmodal.getproductpagention(page, pageSize);
+
+     console.log(product, "categories");
+
+     res.status(200).json({
+       success: true,
+       message: "get product",
+       data: product,
+     });
+  } catch (error) {
+    console.log(error);
+    
+  }
+}
+
+
+module.exports = { listproduct, getproductlist };
