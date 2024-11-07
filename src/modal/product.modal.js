@@ -20,7 +20,7 @@ const getproductpagention = async (page, pageSize) => {
 
     const [result, field] = await pool.execute("SELECT * FROM product LIMIT ? OFFSET ?",[pageSize,offset]);
 
-    console.log(result);
+    // console.log(result);
 
      const [totalResult] = await pool.execute("SELECT COUNT(*) AS total FROM product");
     const total = totalResult[0].total;

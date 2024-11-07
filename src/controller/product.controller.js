@@ -4,7 +4,7 @@ const listproduct = async (req, res) => {
   try {
     const product = await productmodal.getproduct();
 
-    console.log(product, "categories");
+    console.log(product, "product");
 
     res.status(200).json({
       success: true,
@@ -23,14 +23,14 @@ const listproduct = async (req, res) => {
 
 const  getproductlist = async (req, res) => {
   try {
-    console.log("Fwefnewhkfbe", req.query);
+    console.log("Fwefnewhkfbe", req.query.page);
 
       const page = parseInt(req.query.page) || 1; 
       const pageSize = parseInt(req.query.pageSize) || 10; 
 
      const product = await productmodal.getproductpagention(page, pageSize);
 
-     console.log(product, "categories");
+     console.log(product, "product");
 
      res.status(200).json({
        success: true,
