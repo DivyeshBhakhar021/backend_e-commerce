@@ -24,7 +24,6 @@ const getproductpagention = async (page, pageSize) => {
 
      const [totalResult] = await pool.execute("SELECT COUNT(*) AS total FROM product");
     const total = totalResult[0].total;
-
    return [
      result,
      {
@@ -39,7 +38,20 @@ const getproductpagention = async (page, pageSize) => {
   }
 };
 
+const filterdata = async () =>{
+  try {
+
+    // const ASC = 
+    const [ result] = await pool.execute("SELECT * FROM product ORDER BY product_price ASC")
+
+    return result
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   getproduct,
   getproductpagention,
+  filterdata,
 };

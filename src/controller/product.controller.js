@@ -44,4 +44,20 @@ const  getproductlist = async (req, res) => {
 }
 
 
-module.exports = { listproduct, getproductlist };
+const filterdatalist = async (req,res) => {
+  try {
+    const filter = await productmodal.filterdata();
+
+     res.status(200).json({
+       success: true,
+       message: "get product",
+       data: filter,
+     });
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+module.exports = { listproduct, getproductlist, filterdatalist };

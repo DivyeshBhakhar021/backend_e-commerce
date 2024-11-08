@@ -6,4 +6,6 @@ router.get("/list_product", ProductController.listproduct);
 
 router.get("/getprodct", ProductController.getproductlist);
 
+router.post("/filterdata",ProductController.filterdatalist)
+
 module.exports = router;
